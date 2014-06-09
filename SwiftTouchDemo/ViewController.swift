@@ -11,32 +11,32 @@ import UIKit
 class ViewController: UIViewController, UIGestureRecognizerDelegate {
     
     @lazy var canvasView: UIView = {
-        
         let canvasView = UIView(frame: self.view.frame)
         canvasView.backgroundColor = UIColor.darkGrayColor()
         canvasView.autoresizingMask = .FlexibleWidth | .FlexibleHeight
         return canvasView
-        }()
+    }()
     
     @lazy var scrollView: OverlayScrollView = {
         let scrollView = OverlayScrollView()
         scrollView.frame = self.view.bounds
-        scrollView.contentSize = CGSize(width: CGRectGetWidth(self.view.bounds), height: CGRectGetHeight(self.view.bounds) + CGRectGetHeight(self.drawerView.bounds))
-        scrollView.contentOffset = CGPoint(x:0.0, y:CGRectGetHeight(self.drawerView.bounds))
+        
+        scrollView.contentSize = CGSize(
+            width: CGRectGetWidth(self.view.bounds),
+            height: CGRectGetHeight(self.view.bounds) + 650.0
+        )
+        
+        scrollView.contentOffset = CGPoint(x:0.0, y:650.0)
         scrollView.autoresizingMask = .FlexibleWidth
         return scrollView
-        }()
+    }()
     
     @lazy var drawerView: UIVisualEffectView = {
         let drawerView = UIVisualEffectView(effect: UIBlurEffect(style: UIBlurEffectStyle.Dark))
-        drawerView.frame = CGRect(x: 0.0, y: 0.0, width: CGRectGetWidth(self.view.bounds), height: 650.0)
+        drawerView.frame = CGRect(x: 0.0, y: -650.0, width: CGRectGetWidth(self.view.bounds), height: 1300.0)
         drawerView.autoresizingMask = .FlexibleWidth
-        
-        self.addDots(30, view: drawerView.contentView)
-        DotView.arrangeDotsNeatlyInView(drawerView.contentView, animated: false)
-        
         return drawerView
-        }()
+    }()
     
     init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -45,20 +45,20 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Canvas view configuration
+        self.addDots(25, view: canvasView)
+        DotView.arrangeDotsRandomlyInView(canvasView, animated: false)
+        
+        // Drawer view configuration
+        self.addDots(30, view: drawerView.contentView)
+        DotView.arrangeDotsNeatlyInView(drawerView.contentView, animated: false)
+
         view.addSubview(canvasView)
-        
-        // Dot view
-        self.addDots(25, view: self.view)
-        DotView.arrangeDotsRandomlyInView(self.view, animated: false)
-        
         view.addSubview(scrollView)
         scrollView.addSubview(drawerView)
         
-        
         view.addGestureRecognizer(scrollView.panGestureRecognizer)
-        
-        let toucheDelayGestureRecognizer = TouchDelayGestureRecognizer(target: nil, action: nil)
-        canvasView.addGestureRecognizer(toucheDelayGestureRecognizer)
+        view.addGestureRecognizer(TouchDelayGestureRecognizer(target: nil, action: nil))
         
     }
     
@@ -67,6 +67,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
             let dotView = DotView.randomDotView()
             let longGestureRecognizer = UILongPressGestureRecognizer(target: self, action: "handleLongGestureRecognizer:")
             longGestureRecognizer.delegate = self
+            longGestureRecognizer.cancelsTouchesInView = false
             dotView!.center = self.view.center
             dotView!.addGestureRecognizer(longGestureRecognizer)
             view.addSubview(dotView)
@@ -75,24 +76,27 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
     
     func handleLongGestureRecognizer(sender: UILongPressGestureRecognizer) {
         
+        let dot = sender.view as DotView
+        
         switch sender.state {
 
         case .Began:
-            self.grabDot(sender.view as DotView, gesture: sender)
+            self.grabDot(dot, gesture: sender)
             
         case .Changed:
-            self.moveDot(sender.view as DotView, gesture: sender)
+            self.moveDot(dot, gesture: sender)
             
         case .Ended, .Cancelled :
-            self.dropDot(sender.view as DotView, gesture: sender)
+            self.dropDot(dot, gesture: sender)
             
         default:
-            self.dropDot(sender.view as DotView, gesture: sender)
+            self.dropDot(dot, gesture: sender)
         }
         
     }
     
     func grabDot(dotView: DotView, gesture: UIGestureRecognizer) {
+        
         dotView.center =  view.convertPoint(dotView.center, fromView: dotView.superview)
         view.addSubview(dotView)
         
@@ -113,6 +117,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
     }
     
     func dropDot(dotView: DotView, gesture: UIGestureRecognizer) {
+        
         UIView.animateWithDuration(0.2  , animations: {
             dotView.transform = CGAffineTransformIdentity
             dotView.alpha = 1.0
@@ -125,7 +130,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
             canvasView.addSubview(dotView)
         }
      
-        dotView.center =  view.convertPoint(dotView.center, fromView: dotView.superview)
+        dotView.center =  view.convertPoint(dotView.center, toView: dotView.superview)
         DotView.arrangeDotsNeatlyInView(drawerView.contentView, animated: true)
     }
 

@@ -29,7 +29,7 @@
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-    _timer = [NSTimer scheduledTimerWithTimeInterval:0.15 target:self selector:@selector(fail) userInfo:nil repeats:NO];
+    _timer = [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(fail) userInfo:nil repeats:NO];
 }
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {

@@ -15,10 +15,10 @@ class DotView: UIView {
     
     @lazy var randomColor: UIColor = {
         let hue = CGFloat(arc4random() % 256) / 256.0
-        let saturation = (CGFloat(arc4random() % 128) / 256.0) + 0.3
-        let brightness = (CGFloat(arc4random() % 128) / 256.0) + 0.35
+        let saturation = (CGFloat(arc4random() % 128) / 256.0) + 0.5
+        let brightness = (CGFloat(arc4random() % 128) / 256.0) + 0.55
         return UIColor(hue: hue, saturation: saturation, brightness: brightness, alpha: CGFloat(1.0))
-        }()
+    }()
     
     init(frame: CGRect) {
         super.init(frame: frame)
@@ -26,7 +26,6 @@ class DotView: UIView {
     
     convenience init() {
         self.init(frame: DotView.randomFrame())
-        
         self.autoresizingMask = .FlexibleLeftMargin | .FlexibleRightMargin | .FlexibleBottomMargin
         
         // Circle layer
@@ -77,7 +76,7 @@ class DotView: UIView {
                     
                     // First dot
                     if !previousFrame {
-                        dotView.center = CGPoint(x: 70.0, y: 70.0)
+                        dotView.center = CGPoint(x: 70.0, y: 650.0 + 70.0)
                         previousFrame = dotView.frame
                         return
                     }
