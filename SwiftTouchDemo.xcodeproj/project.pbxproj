@@ -7,9 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7B37053D19462DE200FA9B07 /* TouchDelayGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B37053C19462DE200FA9B07 /* TouchDelayGestureRecognizer.m */; };
+		7B41DD2F1945E8F900D069FA /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B41DD2E1945E8F900D069FA /* QuartzCore.framework */; };
 		7B8AADFA1945DBF10080F4E0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8AADF91945DBF10080F4E0 /* AppDelegate.swift */; };
 		7B8AADFC1945DBF10080F4E0 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B8AADFB1945DBF10080F4E0 /* Images.xcassets */; };
 		7B8AAE081945DBF10080F4E0 /* SwiftTouchDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8AAE071945DBF10080F4E0 /* SwiftTouchDemoTests.swift */; };
+		7B8AAE121945DC060080F4E0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8AAE111945DC060080F4E0 /* ViewController.swift */; };
+		7B8AAE141945DD990080F4E0 /* DotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8AAE131945DD990080F4E0 /* DotView.swift */; };
+		7BB5AB8719460A590094C6C9 /* OverlayScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB5AB8619460A590094C6C9 /* OverlayScrollView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -23,6 +28,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7B37053B19462DE200FA9B07 /* TouchDelayGestureRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TouchDelayGestureRecognizer.h; sourceTree = "<group>"; };
+		7B37053C19462DE200FA9B07 /* TouchDelayGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TouchDelayGestureRecognizer.m; sourceTree = "<group>"; };
+		7B37053E19462E1A00FA9B07 /* SwiftTouchDemo-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SwiftTouchDemo-Bridging-Header.h"; sourceTree = "<group>"; };
+		7B41DD2E1945E8F900D069FA /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		7B8AADF41945DBF10080F4E0 /* SwiftTouchDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftTouchDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B8AADF81945DBF10080F4E0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7B8AADF91945DBF10080F4E0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -30,6 +39,9 @@
 		7B8AAE011945DBF10080F4E0 /* SwiftTouchDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftTouchDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B8AAE061945DBF10080F4E0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7B8AAE071945DBF10080F4E0 /* SwiftTouchDemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftTouchDemoTests.swift; sourceTree = "<group>"; };
+		7B8AAE111945DC060080F4E0 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		7B8AAE131945DD990080F4E0 /* DotView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DotView.swift; sourceTree = "<group>"; };
+		7BB5AB8619460A590094C6C9 /* OverlayScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverlayScrollView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,6 +49,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7B41DD2F1945E8F900D069FA /* QuartzCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -53,6 +66,7 @@
 		7B8AADEB1945DBF10080F4E0 = {
 			isa = PBXGroup;
 			children = (
+				7B41DD2E1945E8F900D069FA /* QuartzCore.framework */,
 				7B8AADF61945DBF10080F4E0 /* SwiftTouchDemo */,
 				7B8AAE041945DBF10080F4E0 /* SwiftTouchDemoTests */,
 				7B8AADF51945DBF10080F4E0 /* Products */,
@@ -72,6 +86,12 @@
 			isa = PBXGroup;
 			children = (
 				7B8AADF91945DBF10080F4E0 /* AppDelegate.swift */,
+				7B8AAE131945DD990080F4E0 /* DotView.swift */,
+				7BB5AB8619460A590094C6C9 /* OverlayScrollView.swift */,
+				7B37053B19462DE200FA9B07 /* TouchDelayGestureRecognizer.h */,
+				7B37053C19462DE200FA9B07 /* TouchDelayGestureRecognizer.m */,
+				7B8AAE111945DC060080F4E0 /* ViewController.swift */,
+				7B37053E19462E1A00FA9B07 /* SwiftTouchDemo-Bridging-Header.h */,
 				7B8AADFB1945DBF10080F4E0 /* Images.xcassets */,
 				7B8AADF71945DBF10080F4E0 /* Supporting Files */,
 			);
@@ -200,7 +220,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7B37053D19462DE200FA9B07 /* TouchDelayGestureRecognizer.m in Sources */,
+				7B8AAE121945DC060080F4E0 /* ViewController.swift in Sources */,
 				7B8AADFA1945DBF10080F4E0 /* AppDelegate.swift in Sources */,
+				7BB5AB8719460A590094C6C9 /* OverlayScrollView.swift in Sources */,
+				7B8AAE141945DD990080F4E0 /* DotView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -307,9 +331,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = SwiftTouchDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "SwiftTouchDemo/SwiftTouchDemo-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -318,9 +345,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = SwiftTouchDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "SwiftTouchDemo/SwiftTouchDemo-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -379,6 +408,7 @@
 				7B8AAE0D1945DBF10080F4E0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7B8AAE0E1945DBF10080F4E0 /* Build configuration list for PBXNativeTarget "SwiftTouchDemoTests" */ = {
 			isa = XCConfigurationList;
@@ -387,6 +417,7 @@
 				7B8AAE101945DBF10080F4E0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
